@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfada3ebb5e5fc14fbd1cb199d935f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Self: {fileID: 0}
-  Main: {fileID: 0}
+  Self: {fileID: 148816671}
+  Main: {fileID: 148816671}
   OffUp: 0
   OffLeft: 0
   currentHealth_many: 100
@@ -489,11 +489,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 8af8eb2b15fa94c4f901c43640cc2e20, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfe92798bce9fa4e87972a4fcf6be2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
+  currentHealth: 200
   HealthBar: {fileID: 475728222}
   offsetY: 30
   offsetX: 50
@@ -1051,7 +1051,7 @@ GameObject:
   - component: {fileID: 984135012}
   - component: {fileID: 984135014}
   m_Layer: 0
-  m_Name: ins
+  m_Name: "\u76FE\u578B"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1449,7 +1449,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1354371061}
   - component: {fileID: 1354371060}
-  - component: {fileID: 1354371059}
   - component: {fileID: 1354371062}
   m_Layer: 0
   m_Name: shield
@@ -1458,18 +1457,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1354371059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354371058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8d4543030fd6e42b6368ff09c1c2f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1354371060
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1663,7 +1650,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1661752622}
   - component: {fileID: 1661752621}
-  - component: {fileID: 1661752620}
   - component: {fileID: 1661752623}
   m_Layer: 0
   m_Name: "\u76D4\u7532\u578B"
@@ -1672,29 +1658,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1661752620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661752619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67f5a05381c07694aa2915c657b65fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentArmor: 100
-  currentArmor_2: 100
-  Armor: {fileID: 2014421447}
-  Armor_2: {fileID: 612022434}
-  Target_2: {fileID: 1661752619}
-  Armorject: {fileID: 2014421444}
-  ArmorUnder: {fileID: 2056584178}
-  Armorject_2: {fileID: 612022433}
-  offsety: 30
-  offsetx: 50
-  a: 10
 --- !u!212 &1661752621
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2000,8 +1963,9 @@ GameObject:
   - component: {fileID: 2014421447}
   - component: {fileID: 2014421446}
   - component: {fileID: 2014421445}
+  - component: {fileID: 2014421448}
   m_Layer: 5
-  m_Name: "\u8840\u689D_2"
+  m_Name: "\u76D4\u7532\u578B\u8840\u689D_2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2064,6 +2028,29 @@ RectTransform:
   m_AnchoredPosition: {x: 310.5, y: 91.100006}
   m_SizeDelta: {x: 100, y: 10}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &2014421448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014421444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f5a05381c07694aa2915c657b65fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentArmor: 100
+  currentArmor_2: 100
+  Armor: {fileID: 2014421447}
+  Armor_2: {fileID: 612022434}
+  Target_2: {fileID: 1661752619}
+  Armorject: {fileID: 2014421444}
+  ArmorUnder: {fileID: 2056584178}
+  Armorject_2: {fileID: 612022433}
+  offsety: 30
+  offsetx: 50
+  a: 10
 --- !u!1 &2056584178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,7 +2254,7 @@ PrefabInstance:
     - target: {fileID: 6596355442155749473, guid: 0d5162c65c1aa814d9f0db2c329bbbc4,
         type: 3}
       propertyPath: m_Name
-      value: ins
+      value: "\u76FE\u578B"
       objectReference: {fileID: 0}
     - target: {fileID: 6596355442155749473, guid: 0d5162c65c1aa814d9f0db2c329bbbc4,
         type: 3}
