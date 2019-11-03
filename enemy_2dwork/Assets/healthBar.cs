@@ -21,18 +21,10 @@ public class healthBar : MonoBehaviour
     [Header("血量底圖")]
     public GameObject HealthUnder;//血量底圖
     #endregion
+
     #region 執行
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-
-        {
-
-            //接受傷害
-
-            currentHealth = currentHealth - 10;
-
-        }
         HealthBar.sizeDelta = new Vector2(currentHealth, HealthBar.sizeDelta.y);
         Vector2 TargeP = Camera.main.WorldToScreenPoint(Target.transform.position);
         Health.GetComponent<RectTransform>().position = TargeP + Vector2.up * offsetY + Vector2.left * offsetX;

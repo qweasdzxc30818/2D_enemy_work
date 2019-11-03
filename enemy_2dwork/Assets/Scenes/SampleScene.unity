@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 148816674}
   - component: {fileID: 148816673}
   - component: {fileID: 148816672}
+  - component: {fileID: 148816675}
   m_Layer: 0
   m_Name: "\u5BC6\u96C6\u578B\u6575\u4EBA_main"
   m_TagString: Untagged
@@ -215,12 +216,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148816671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.602, y: -1.171, z: 0}
+  m_LocalPosition: {x: 1.41, y: -1.33, z: 0}
   m_LocalScale: {x: 0.215, y: 0.215, z: 0.215}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &148816675
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148816671}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &199406961
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +249,7 @@ GameObject:
   - component: {fileID: 199406963}
   - component: {fileID: 199406962}
   - component: {fileID: 199406964}
+  - component: {fileID: 199406965}
   m_Layer: 0
   m_Name: "\u5BC6\u96C6\u578B\u6575\u4EBA (3)"
   m_TagString: Untagged
@@ -316,12 +334,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Self: {fileID: 199406961}
   Main: {fileID: 148816671}
-  OffUp: -0.18
+  OffUp: -0.34
   OffLeft: 0.11
   currentHealth_many: 100
   Health_many: {fileID: 756585270}
   Health_offY: 10
   Health_offX: 10
+--- !u!58 &199406965
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199406961}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &439121704
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +411,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -451,6 +487,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -626,6 +664,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -765,6 +805,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -858,6 +900,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -887,6 +931,7 @@ GameObject:
   - component: {fileID: 904501317}
   - component: {fileID: 904501316}
   - component: {fileID: 904501318}
+  - component: {fileID: 904501319}
   m_Layer: 0
   m_Name: "\u5BC6\u96C6\u578B\u6575\u4EBA (5)"
   m_TagString: Untagged
@@ -971,12 +1016,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Self: {fileID: 904501315}
   Main: {fileID: 148816671}
-  OffUp: -0.01
+  OffUp: 0.53
   OffLeft: -0.24
   currentHealth_many: 100
   Health_many: {fileID: 756585270}
   Health_offY: 10
   Health_offX: 50
+--- !u!58 &904501319
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904501315}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &984135011
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,8 +1049,9 @@ GameObject:
   m_Component:
   - component: {fileID: 984135013}
   - component: {fileID: 984135012}
+  - component: {fileID: 984135014}
   m_Layer: 0
-  m_Name: "\u76FE\u578B"
+  m_Name: ins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1061,6 +1123,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -0.016, y: 0.82900006, z: 902.18}
+--- !u!58 &984135014
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984135011}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5000003
 --- !u!1 &1066486535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +1301,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1252,6 +1332,7 @@ GameObject:
   - component: {fileID: 1341329420}
   - component: {fileID: 1341329419}
   - component: {fileID: 1341329421}
+  - component: {fileID: 1341329422}
   m_Layer: 0
   m_Name: "\u5BC6\u96C6\u578B\u6575\u4EBA (1)"
   m_TagString: Untagged
@@ -1336,12 +1417,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Self: {fileID: 1341329418}
   Main: {fileID: 148816671}
-  OffUp: 0.2
-  OffLeft: 0.2
+  OffUp: 0.32
+  OffLeft: 0.33
   currentHealth_many: 100
   Health_many: {fileID: 756585270}
   Health_offY: 10
   Health_offX: 50
+--- !u!58 &1341329422
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341329418}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1354371058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,8 +1470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8d4543030fd6e42b6368ff09c1c2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  shield_1: {fileID: 1354371058}
 --- !u!212 &1354371060
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1475,6 +1570,7 @@ GameObject:
   - component: {fileID: 1517521083}
   - component: {fileID: 1517521085}
   - component: {fileID: 1517521084}
+  - component: {fileID: 1517521086}
   m_Layer: 5
   m_Name: "\u8840\u689D_Ground"
   m_TagString: Untagged
@@ -1498,7 +1594,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 206.5, y: 95.5}
+  m_AnchoredPosition: {x: 182.5, y: 83.9}
   m_SizeDelta: {x: 100, y: 3}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1517521084
@@ -1519,6 +1615,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1537,6 +1635,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517521082}
   m_CullTransparentMesh: 0
+--- !u!114 &1517521086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517521082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8914e184783f5ec4989db3945f57f45a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGround: 1
+  Health_Ground: {fileID: 1517521083}
+  currentHealth_Ground: 100
+  OffY_Ground: 15
+  OffX_Ground: 50
+  Enemy_Ground: {fileID: 1997886816}
 --- !u!1 &1661752619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1664,7 @@ GameObject:
   - component: {fileID: 1661752622}
   - component: {fileID: 1661752621}
   - component: {fileID: 1661752620}
+  - component: {fileID: 1661752623}
   m_Layer: 0
   m_Name: "\u76D4\u7532\u578B"
   m_TagString: Untagged
@@ -1641,6 +1758,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0.82900006, z: 181.06499}
+--- !u!58 &1661752623
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661752619}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5000001
 --- !u!1 &1693113866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1785,7 @@ GameObject:
   - component: {fileID: 1693113868}
   - component: {fileID: 1693113867}
   - component: {fileID: 1693113869}
+  - component: {fileID: 1693113870}
   m_Layer: 0
   m_Name: "\u5BC6\u96C6\u578B\u6575\u4EBA (2)"
   m_TagString: Untagged
@@ -1736,12 +1870,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Self: {fileID: 1693113866}
   Main: {fileID: 148816671}
-  OffUp: -0.27
-  OffLeft: -0.3
+  OffUp: -0.48
+  OffLeft: -0.53
   currentHealth_many: 100
   Health_many: {fileID: 756585270}
   Health_offY: 10
   Health_offX: 50
+--- !u!58 &1693113870
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693113866}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1997886816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,7 +1903,6 @@ GameObject:
   - component: {fileID: 1997886819}
   - component: {fileID: 1997886818}
   - component: {fileID: 1997886817}
-  - component: {fileID: 1997886820}
   m_Layer: 0
   m_Name: "\u7E2E\u5730\u578B"
   m_TagString: Untagged
@@ -1840,24 +1989,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 3.7610002, y: 179.781, z: 0}
---- !u!114 &1997886820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997886816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8914e184783f5ec4989db3945f57f45a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGround: 0
-  Health_Ground: {fileID: 1517521083}
-  currentHealth_Ground: 100
-  OffY_Ground: 15
-  OffX_Ground: 50
-  Enemy_Ground: {fileID: 1997886816}
 --- !u!1 &2014421444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,6 +2025,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1967,6 +2100,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2015,6 +2150,7 @@ GameObject:
   - component: {fileID: 2101732656}
   - component: {fileID: 2101732655}
   - component: {fileID: 2101732657}
+  - component: {fileID: 2101732658}
   m_Layer: 0
   m_Name: "\u5BC6\u96C6\u578B\u6575\u4EBA (4)"
   m_TagString: Untagged
@@ -2099,12 +2235,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Self: {fileID: 2101732654}
   Main: {fileID: 148816671}
-  OffUp: 0.02
-  OffLeft: 0.13
+  OffUp: 0.18
+  OffLeft: -0.63
   currentHealth_many: 100
   Health_many: {fileID: 756585270}
   Health_offY: 10
   Health_offX: 50
+--- !u!58 &2101732658
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101732654}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1001 &6596355442312492290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2115,7 +2267,12 @@ PrefabInstance:
     - target: {fileID: 6596355442155749473, guid: 0d5162c65c1aa814d9f0db2c329bbbc4,
         type: 3}
       propertyPath: m_Name
-      value: "\u76FE\u578B"
+      value: ins
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596355442155749473, guid: 0d5162c65c1aa814d9f0db2c329bbbc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6596355442155749479, guid: 0d5162c65c1aa814d9f0db2c329bbbc4,
         type: 3}

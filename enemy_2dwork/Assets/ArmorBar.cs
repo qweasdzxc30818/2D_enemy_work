@@ -24,29 +24,37 @@ public class ArmorBar : MonoBehaviour
     [Header("盔甲一次攻擊減少量")]
     public int a = 0;
     #endregion
-    #region 執行
-    void Update()
+    #region 事件
+/// <summary>
+/// 碰撞時執行
+/// </summary>
+/// <param name="collision"></param>
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
-
         if (currentArmor_2 > 0)
         {
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                currentArmor_2 = currentArmor_2 - a;//盔甲受一次攻擊扣血量
-            }
+            currentArmor_2 = currentArmor_2 - a;//盔甲受一次攻擊扣血量
         }
-        else if (Input.GetKeyDown(KeyCode.H))
+        else 
         {
             currentArmor = currentArmor - 10;//血量受一次攻擊扣血量
         }
+    }
 
+    void Update()
+    {
         Armor.sizeDelta = new Vector2(currentArmor, Armor.sizeDelta.y);
         Armor_2.sizeDelta = new Vector2(currentArmor_2, Armor_2.sizeDelta.y);
         Vector2 TargeX = Camera.main.WorldToScreenPoint(Target_2.transform.position);
         Armorject.GetComponent<RectTransform>().position = TargeX + Vector2.up * offsety + Vector2.left * offsetx;
         ArmorUnder.GetComponent<RectTransform>().position = TargeX + Vector2.up * offsety + Vector2.left * offsetx;
         Armorject_2.GetComponent<RectTransform>().position = TargeX + Vector2.up * offsety + Vector2.left * offsetx;//跟隨
+        if (currentArmor == 0)
+        {
+            Target_2.SetActive(false);
+            currentArmor_2 = currentArmor_2 -100;
+        }
+        
     }
     #endregion
    

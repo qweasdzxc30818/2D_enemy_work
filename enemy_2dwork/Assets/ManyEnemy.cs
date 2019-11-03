@@ -17,22 +17,33 @@ public class ManyEnemy : MonoBehaviour
     public float Health_offY = 10f;
     public float Health_offX = 10f;
     #endregion
-    void OnTriggerEnter2D ()
+
+    /// <summary>
+    /// 碰撞時執行
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         currentHealth_many = currentHealth_many - 10;
     }
-    #region 執行
+
+    #region 事件
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            currentHealth_many = currentHealth_many - 10;
+           // currentHealth_many = currentHealth_many - 10;
         }
-        Health_many.sizeDelta = new Vector2(currentHealth_many, Health_many.sizeDelta.y);
+        Health_many.sizeDelta = new Vector2(currentHealth_many, Health_many.sizeDelta.y);//血條與分身跟隨
         Vector2 TargeY = Camera.main.WorldToScreenPoint(Main.transform.position);
         Health_many.GetComponent<RectTransform>().position = TargeY + Vector2.up * Health_offY + Vector2.left * Health_offX;
         Self.GetComponent<Transform>().position = Main.GetComponent<Transform>().position + Vector3.up * OffUp + Vector3.left * OffLeft;
         
+        if (currentHealth_many == 0)//死亡
+        {
+            Main.SetActive(false);
+            Self.SetActive(false);
+        }
     }
     #endregion
 
