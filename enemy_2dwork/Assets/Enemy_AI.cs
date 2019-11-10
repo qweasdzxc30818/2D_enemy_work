@@ -23,7 +23,7 @@ public class Enemy_AI : MonoBehaviour
         Return
     }
     public MonsterState currentState = MonsterState.Stand;//默認原地
-    public float[] actWeight = { 3000, 3000, 4000 };
+    public float[] actWeight = { 3000, 4000 };
     public float actResttime ;//狀態切換間隔
     public float lastAct;//上次切換時間
 
@@ -60,7 +60,7 @@ public class Enemy_AI : MonoBehaviour
                 EnemyDistanceCheck();
                 break;
             case MonsterState.Walk:
-                transform.Translate(Vector2.up * Time.deltaTime * walkSpeed);
+                transform.Translate(Vector2.up * Time.deltaTime * walkSpeed,0);
                 self.rotation = Quaternion.Slerp(self.rotation, targetRotation, turnSpeed);
                 
 
@@ -90,48 +90,48 @@ public class Enemy_AI : MonoBehaviour
         }
     }
     #endregion
-
-    #region 方法
+    
     /// <summary>
     /// 隨機交換狀態
     /// </summary>
     void RandomAction()
     {
         lastAct = Time.time;
-        float number = Random.Range(0, actWeight[0] + actWeight[1] + actWeight[2]);
+        float number = Random.Range(0, actWeight[0] + actWeight[1] );
         if (number <= actWeight[0])
         {
             currentState = MonsterState.Stand;
         }
-        else if (actWeight[0] < number && number <= actWeight[0] + actWeight[1])
-        {
-            currentState = MonsterState.Check;
-        }
-        if (actWeight[0] + actWeight[1] < number && number <= actWeight[0] + actWeight[1] + actWeight[2])
+     
+
+        
+        if (actWeight[0]  < number && number <= actWeight[0] + actWeight[1] )
         {
             currentState = MonsterState.Walk;
             targetRotation = Quaternion.Euler(0, 0, Random.Range(1, 5) * 90);
 
         }
     }
+
     /// <summary>
     /// 追擊狀態
     /// </summary>
     void EnemyDistanceCheck()
     {
-        enemyToPlayer = Vector2.Distance(playerUnit.transform.position, transform.position);
+        enemyToPlayer = Vector2.Distance(player.transform.position, transform.position);
         if (enemyToPlayer < defend)
         {
             currentState = MonsterState.Chase;
         }
 
     }
+
     /// <summary>
     /// 檢測玩家距離與遊走範圍
     /// </summary>
     void WanderRadiusCheck()
     {
-        enemyToPlayer = Vector2.Distance(playerUnit.transform.position, transform.position);
+        enemyToPlayer = Vector2.Distance(player.transform.position, transform.position);
         enemyBegin = Vector2.Distance(transform.position, begin);
         if(enemyToPlayer < defend)
         {
@@ -143,18 +143,20 @@ public class Enemy_AI : MonoBehaviour
         }
 
     }
+
     /// <summary>
     /// 追擊範圍
     /// </summary>
     void ChaseRadiusCheck()
     {
-        enemyToPlayer = Vector2.Distance(playerUnit.transform.position, transform.position);
+        enemyToPlayer = Vector2.Distance(player.transform.position, transform.position);
         enemyBegin = Vector2.Distance(transform.position, begin);
         if (enemyBegin> chaseRadius)
         {
             currentState = MonsterState.Return;
         }
     }
+
     /// <summary>
     /// 回到原位後隨機狀態
     /// </summary>
@@ -167,7 +169,7 @@ public class Enemy_AI : MonoBehaviour
             RandomAction();
         }
     }
-    #endregion
+
     //private void look()
     // {
     //     Vector3 dir = player.position - transform.position;

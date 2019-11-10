@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba67de80db46e0a4eb3b01b339bfedcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerUnit: {fileID: 1047544567}
+  playerUnit: {fileID: 0}
   player: {fileID: 1047544570}
   begin: {x: 0, y: 0, z: 0}
   wanderRadius: 3
@@ -1989,7 +1989,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1854319418}
   - component: {fileID: 1854319417}
-  - component: {fileID: 1854319416}
   m_Layer: 0
   m_Name: "\u65B9\u5F62 (1)"
   m_TagString: Untagged
@@ -1997,18 +1996,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1854319416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854319415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2806341ef6ed2e54382c1e7d7f9b6bdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1854319417
 SpriteRenderer:
   m_ObjectHideFlags: 0
