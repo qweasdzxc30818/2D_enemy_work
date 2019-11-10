@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class healthBar : MonoBehaviour
+public class ShieldHealth : MonoBehaviour
 {
     #region 血量設定
     

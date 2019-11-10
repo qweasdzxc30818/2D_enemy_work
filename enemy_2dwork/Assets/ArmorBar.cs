@@ -45,11 +45,11 @@ public class ArmorBar : MonoBehaviour
     {
         Armor.sizeDelta = new Vector2(currentArmor, Armor.sizeDelta.y);
         Armor_2.sizeDelta = new Vector2(currentArmor_2, Armor_2.sizeDelta.y);
-        Vector2 TargeX = Camera.main.WorldToScreenPoint(Target_2.transform.position);
-        Armorject.GetComponent<RectTransform>().position = TargeX + Vector2.up * offsety + Vector2.left * offsetx;
-        ArmorUnder.GetComponent<RectTransform>().position = TargeX + Vector2.up * offsety + Vector2.left * offsetx;
+        Vector2 TargeX = Camera.main.WorldToScreenPoint(Target_2.transform.position);//存跟隨目標位置
+        Armorject.GetComponent<RectTransform>().position = TargeX + Vector2.up * offsety + Vector2.left * offsetx;//盔甲跟隨
+        ArmorUnder.GetComponent<RectTransform>().position = TargeX + Vector2.up * offsety + Vector2.left * offsetx;//底圖跟隨(可刪)
         Armorject_2.GetComponent<RectTransform>().position = TargeX + Vector2.up * offsety + Vector2.left * offsetx;//跟隨
-        if (currentArmor == 0)
+        if (currentArmor == 0)//死亡
         {
             Target_2.SetActive(false);
             currentArmor_2 = currentArmor_2 -100;

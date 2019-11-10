@@ -60,9 +60,14 @@ public class Enemy_AI : MonoBehaviour
                 EnemyDistanceCheck();
                 break;
             case MonsterState.Walk:
-                transform.Translate(Vector2.up * Time.deltaTime * walkSpeed,0);
-                self.rotation = Quaternion.Slerp(self.rotation, targetRotation, turnSpeed);
-                
+
+                Vector3 vec =new Vector3 (Mathf.Sin(Mathf.Deg2Rad*transform.rotation.z), Mathf.Cos(Mathf.Deg2Rad * transform.rotation.z), 0) ;
+                Debug.Log(vec);
+                transform.Translate(vec * Time.deltaTime * walkSpeed , 0);
+                //self.rotation = Quaternion.Slerp(self.rotation, targetRotation, turnSpeed);
+                //Debug.Log("圓形");
+                //Debug.Log(self.rotation);
+                //Debug.Log(targetRotation);
 
 
                 if (Time.time - lastAct > actResttime)
@@ -71,6 +76,7 @@ public class Enemy_AI : MonoBehaviour
                 }
                 WanderRadiusCheck();
                 break;
+                /*
             case MonsterState.Chase:
                 if (!is_Running)
                 {
@@ -87,6 +93,7 @@ public class Enemy_AI : MonoBehaviour
                 transform.Translate(Vector2.up * Time.deltaTime * runSpeed);
                 ReturnCheck();
                 break;
+                */
         }
     }
     #endregion
@@ -149,7 +156,7 @@ public class Enemy_AI : MonoBehaviour
     /// </summary>
     void ChaseRadiusCheck()
     {
-        enemyToPlayer = Vector2.Distance(player.transform.position, transform.position);
+        //enemyToPlayer = Vector2.Distance(player.transform.position, transform.position);
         enemyBegin = Vector2.Distance(transform.position, begin);
         if (enemyBegin> chaseRadius)
         {
@@ -170,12 +177,7 @@ public class Enemy_AI : MonoBehaviour
         }
     }
 
-    //private void look()
-    // {
-    //     Vector3 dir = player.position - transform.position;
-    //    float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-    //   transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-    // }
+    
 
 }
 

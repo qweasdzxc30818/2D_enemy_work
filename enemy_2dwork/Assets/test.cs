@@ -7,7 +7,7 @@ public class test : MonoBehaviour
     private Quaternion Ta;
     public Transform self;
     int a = 20;
-    // Start is called before the first frame update
+
     void Start()
     {
         StartCoroutine(angle());
@@ -23,10 +23,14 @@ public class test : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        Vector3 vec = new Vector3(Mathf.Sin(Mathf.Deg2Rad * transform.rotation.z), Mathf.Cos(Mathf.Deg2Rad * transform.rotation.z), 0);
         transform.rotation = Quaternion.Slerp(self.rotation, Ta, 0.1f);
-        transform.Translate(Vector3.forward*Time.deltaTime, 0);
+        transform.Translate(vec * Time.deltaTime , 0);
+        //Debug.Log("方形");
+        //Debug.Log(self.rotation);
+        //Debug.Log(Ta);
     }
 }

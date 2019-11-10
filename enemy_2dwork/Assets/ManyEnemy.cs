@@ -35,9 +35,9 @@ public class ManyEnemy : MonoBehaviour
            // currentHealth_many = currentHealth_many - 10;
         }
         Health_many.sizeDelta = new Vector2(currentHealth_many, Health_many.sizeDelta.y);//血條與分身跟隨
-        Vector2 TargeY = Camera.main.WorldToScreenPoint(Main.transform.position);
-        Health_many.GetComponent<RectTransform>().position = TargeY + Vector2.up * Health_offY + Vector2.left * Health_offX;
-        Self.GetComponent<Transform>().position = Main.GetComponent<Transform>().position + Vector3.up * OffUp + Vector3.left * OffLeft;
+        Vector2 TargeY = Camera.main.WorldToScreenPoint(Main.transform.position);//存主要位置
+        Health_many.GetComponent<RectTransform>().position = TargeY + Vector2.up * Health_offY + Vector2.left * Health_offX;//血條跟隨
+        Self.GetComponent<Transform>().position = Main.GetComponent<Transform>().position + Vector3.up * OffUp + Vector3.left * OffLeft;//分身跟隨
         
         if (currentHealth_many == 0)//死亡
         {
