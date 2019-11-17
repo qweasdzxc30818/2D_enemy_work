@@ -7,6 +7,7 @@ public class ManyEnemy : MonoBehaviour
     #region 設定
     public GameObject Self;
     public GameObject Main;
+    public GameObject player;
     [Range(-1f,1f)]
     public float OffUp = 10f;
     [Range(-1f,1f)]

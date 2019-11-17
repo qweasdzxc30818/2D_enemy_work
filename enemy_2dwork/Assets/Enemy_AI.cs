@@ -12,6 +12,8 @@ public class Enemy_AI : MonoBehaviour
     public float wanderRadius;//遊走半徑
     public float chaseRadius;//追擊半徑
     public float defend;//自衛半徑
+    public float chargeRadius;//衝刺半徑
+    public float chargespeed;//衝刺速度
     public float walkSpeed;//遊走速度
     public float runSpeed;//追擊速度
     public float turnSpeed;//轉向速度
@@ -20,6 +22,7 @@ public class Enemy_AI : MonoBehaviour
         Stand,
         Walk,
         Chase,
+        charge,
         Return
     }
     public MonsterState currentState = MonsterState.Stand;//默認原地
@@ -30,6 +33,7 @@ public class Enemy_AI : MonoBehaviour
     private float enemyToPlayer;//敵人跟玩家之間距離
     private float enemyBegin;//敵人與初始位置的距離
     private Quaternion targetRotation;//目標朝向
+    private float rotate;
     private bool is_Running = false;
     public Transform self;
     #endregion
@@ -60,14 +64,10 @@ public class Enemy_AI : MonoBehaviour
                 EnemyDistanceCheck();
                 break;
             case MonsterState.Walk:
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
+                transform.position += transform.up * Time.deltaTime * walkSpeed;
+                //transform.Rotate(0, 0, rotate);
 
-                Vector3 vec =new Vector3 (Mathf.Sin(Mathf.Deg2Rad*transform.rotation.z), Mathf.Cos(Mathf.Deg2Rad * transform.rotation.z), 0) ;
-                Debug.Log(vec);
-                transform.Translate(vec * Time.deltaTime * walkSpeed , 0);
-                //self.rotation = Quaternion.Slerp(self.rotation, targetRotation, turnSpeed);
-                //Debug.Log("圓形");
-                //Debug.Log(self.rotation);
-                //Debug.Log(targetRotation);
 
 
                 if (Time.time - lastAct > actResttime)
@@ -76,24 +76,31 @@ public class Enemy_AI : MonoBehaviour
                 }
                 WanderRadiusCheck();
                 break;
-                /*
+                
             case MonsterState.Chase:
                 if (!is_Running)
                 {
                     is_Running = true;
                 }
-                transform.Translate(Vector2.up * Time.deltaTime * runSpeed);
-                targetRotation = Quaternion.LookRotation(Vector2.zero , playerUnit.transform.position - transform.position);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
-                ChaseRadiusCheck();
+                transform.up = player.position - transform.position;
+                transform.position += transform.up * Time.deltaTime * runSpeed;
+                //targetRotation = Quaternion.LookRotation(Vector2.zero , playerUnit.transform.position - transform.position);
+                //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
+                chargeRadiusCheck();
                 break;
+            case MonsterState.charge:
+                StartCoroutine(Charge());
+                break;
+                
             case MonsterState.Return:
-                targetRotation = Quaternion.LookRotation(begin - transform.position, Vector3.up);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
-                transform.Translate(Vector2.up * Time.deltaTime * runSpeed);
+                transform.up = begin - transform.position;
+                transform.position += transform.up * Time.deltaTime * runSpeed;
+                //targetRotation = Quaternion.LookRotation(begin - transform.position, Vector3.up);
+                //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
+                //transform.position += transform.up * Time.deltaTime * runSpeed;
                 ReturnCheck();
                 break;
-                */
+                
         }
     }
     #endregion
@@ -114,8 +121,10 @@ public class Enemy_AI : MonoBehaviour
         
         if (actWeight[0]  < number && number <= actWeight[0] + actWeight[1] )
         {
+            //rotate = Random.Range(-360,360);
+            targetRotation = Quaternion.Euler(0, 0, Random.Range(1, 4)*90 );
             currentState = MonsterState.Walk;
-            targetRotation = Quaternion.Euler(0, 0, Random.Range(1, 5) * 90);
+            
 
         }
     }
@@ -177,7 +186,21 @@ public class Enemy_AI : MonoBehaviour
         }
     }
 
-    
+    void chargeRadiusCheck()
+    {
+        enemyToPlayer = Vector2.Distance(player.position, transform.position);
+        if (enemyBegin < chargeRadius   )
+        {
+            currentState = MonsterState.charge;
+        }
+    }
 
+    private IEnumerator Charge()
+    {
+        yield return new WaitForSeconds(3); 
+        transform.up = player.position - transform.position;
+        transform.position += transform.up * Time.deltaTime * chargespeed;
+        
+    }
 }
 
