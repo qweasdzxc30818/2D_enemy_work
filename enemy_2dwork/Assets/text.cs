@@ -19,12 +19,12 @@ public class text : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //transform.Rotate(0, 0, 3);                            //隨機轉向測試
+        Quaternion target = Quaternion.Euler(0, 0, Random.Range(1, 5) * 90);
+        Target.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 0.1f);
+        Target.position += transform.up * Time.deltaTime * 0.1f;
         
         
     }
         //transform.position = Vector2.SmoothDamp(transform.position, targetpos, ref currentspeed, smoothtime, maxspeed);
-        //transform.Rotate(0, 0, 3);                            //隨機轉向測試
-        //Quaternion target = Quaternion.Euler(0, 0, Random.Range(1, 5) * 90);
-        //Target.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 0.1f);
-        //Target.position += transform.up * Time.deltaTime * 0.1f;
 }
