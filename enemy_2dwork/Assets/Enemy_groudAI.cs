@@ -45,6 +45,7 @@ public class Enemy_groudAI : MonoBehaviour
     private float enemyBegin;//敵人與初始位置的距離
     private bool is_Running = false;
     #endregion
+
     #region 事件
     void Start()
     {

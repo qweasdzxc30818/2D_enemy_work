@@ -24,6 +24,7 @@ public class ArmorBar : MonoBehaviour
     [Header("盔甲一次攻擊減少量")]
     public int a = 0;
     #endregion
+
     #region 事件
 /// <summary>
 /// 碰撞時執行

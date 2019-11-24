@@ -14,7 +14,6 @@ public class GroundEnemy : MonoBehaviour
     public float OffY_Ground = 10F;
     public float OffX_Ground = 10F;
     public GameObject Enemy_Ground;
-    public SpriteRenderer EnemyGround;
     #endregion
 
     #region 事件
@@ -63,23 +62,14 @@ public class GroundEnemy : MonoBehaviour
             }
         }
 
-        else if (isGround == false)
-        {
-            Enemy_Ground.SetActive(false);
-        }
-
-        if (currentHealth_Ground == 0)
-        {
-            CancelInvoke();
-            Enemy_Ground.SetActive(false);
-        }
+        
 
         Health_Ground.sizeDelta = new Vector2(currentHealth_Ground, Health_Ground.sizeDelta.y);//血條跟隨
         Vector2 target_ground = Camera.main.WorldToScreenPoint(Enemy_Ground.transform.position);
         Health_Ground.GetComponent<RectTransform>().position = target_ground + Vector2.up * OffY_Ground + Vector2.left * OffX_Ground;
-        if (isGround == false) {
+       /* if (isGround == false) {
             self.rotation = new Quaternion(0, 0, 0, 0);
-        }
+        }*/
 
         #endregion
     }
