@@ -6,22 +6,37 @@ using UnityEngine.SceneManagement;
 public class Enemy_AI : MonoBehaviour
 {
     #region 欄位
-    public GameObject playerUnit;
+    [Header("玩家")]
     public Transform player;//玩家
-    public Vector3 begin;//敵人初始位置
+    [Header("敵人初始位置")]
+    public Vector3 begin;//敵人初始位置    
+    [Header("遊走半徑")]
     public float wanderRadius;//遊走半徑
+    [Header("追擊半徑")]
     public float chaseRadius;//追擊半徑
-    public float defend;//自衛半徑
+    [Header("自衛半徑")]
+    public float defend;//自衛半徑    
+    [Header("衝刺半徑")]
     public float chargeRadius;//衝刺半徑
-    public float chargespeed;//衝刺速度
+    [Header("衝刺速度")]
+    public float chargespeed;//衝刺速度    
+    [Header("遊走速度")]
     public float walkSpeed;//遊走速度
+    [Header("追擊速度")]
     public float runSpeed;//追擊速度
+    [Header("轉向速度")]
     public float turnSpeed;//轉向速度
+    [Header("衝刺終點")]
     public Vector2 chargepoint;
-    public bool a = true;
+    [Header("是否正在衝刺")]
     public bool ischarge = false;
+    [Header("能否衝刺")]
     public bool b = true;
+    [Header("計時器")]
     public float timer;
+    /// <summary>
+    /// 敵人狀態
+    /// </summary>
     public enum MonsterState
     {
         Stand,
@@ -30,16 +45,20 @@ public class Enemy_AI : MonoBehaviour
         charge,
         Return
     }
+    [Header("當前狀態")]
     public MonsterState currentState = MonsterState.Stand;//默認原地
     public float[] actWeight = { 3000, 4000 };
-    public float actResttime ;//狀態切換間隔
+    [Header("下個動作的切換間隔")]
+    public float actResttime;//狀態切換間隔
+    [Header("上次切換時間")]
     public float lastAct;//上次切換時間
 
     private float enemyToPlayer;//敵人跟玩家之間距離
     private float enemyBegin;//敵人與初始位置的距離
-    public Quaternion targetRotation = new Quaternion(0,0,0,0);//目標朝向
+    //public Quaternion targetRotation = new Quaternion(0, 0, 0, 0);//目標朝向
     private float rotate;
     private bool is_Running = false;
+    [Header("敵人本身")]
     public Transform self;
     #endregion
 
@@ -54,14 +73,14 @@ public class Enemy_AI : MonoBehaviour
         self = GetComponent<Transform>();
     }
 
-    
+
     void Update()
     {
         switch (currentState)
         {
             //待機狀態
             case MonsterState.Stand:
-                if (Time.time - lastAct >actResttime)
+                if (Time.time - lastAct > actResttime)
                 {
                     b = true;
                     RandomAction(); //時間到隨機切換      
@@ -69,103 +88,107 @@ public class Enemy_AI : MonoBehaviour
                 //檢測用方法
                 EnemyDistanceCheck();
                 break;
+            //走路狀態
             case MonsterState.Walk:
-                //Debug.Log(targetRotation);
-                //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
-                transform.up = player.position - transform.position;
+                transform.up = player.position - transform.position;//朝向
                 transform.position += transform.up * Time.deltaTime * walkSpeed;
-                //transform.Rotate(0, 0, rotate);
-
-
-
+                //時間到切換狀態
                 if (Time.time - lastAct > actResttime)
                 {
-                    RandomAction();         
+                    RandomAction();
                 }
+                //檢查是否追擊
                 WanderRadiusCheck();
                 break;
-                
+            //追擊狀態
             case MonsterState.Chase:
-                if (!is_Running)
+                timer = 0;
+                if (is_Running == false)
                 {
                     is_Running = true;
                 }
+                //若不是在衝刺中 追擊玩家
                 if (ischarge == false)
                 {
-                    a = true;
                     transform.up = player.position - transform.position;
                     transform.position += transform.up * Time.deltaTime * runSpeed;
+                    //檢查是否再追擊範圍
                     ChaseRadiusCheck();
+                    //檢查是否使用衝刺
                     chargeRadiusCheck();
                 }
-                //targetRotation = Quaternion.LookRotation(Vector2.zero , playerUnit.transform.position - transform.position);
-                //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
                 break;
+            //衝刺狀態
             case MonsterState.charge:
-                
                 transform.up = player.position - transform.position;
-                timer += Time.deltaTime;
-                if(timer >= 3 && timer<=5)
+                timer += Time.deltaTime;//開始計時
+                if(timer>=2.5 && timer <= 2.8)
                 {
-                    if (b == true)
+                    chargepoint = transform.position + (player.position - transform.position) * 1.5f;
+                }
+                // 2.5~3秒間為玩家反應時間
+                if (timer >= 3 && timer <= 3.5)
+                {
+                    if (b == true)//若可以衝刺
                     {
-                        chargepoint = transform.position+(player.position - transform.position) * 2;
+                        
                         b = false;
                         Debug.Log(chargepoint);
-                        
+
                     }
+                    //衝刺
                     transform.position = Vector3.MoveTowards(transform.position, chargepoint, chargespeed);
-                    
+
                 }
-                
-                ChaseRadiusCheck();
-                /*if (a == true)
+                //冷卻時間
+                if (timer >= 3.8)
                 {
-                    StartCoroutine(Charge());
-                    currentState = MonsterState.Stand;
+                    //轉為追擊狀態
+                    currentState = MonsterState.Chase;
+                    //重設能否衝刺
+                    b = true;
                 }
-                */
                 break;
-                
+            //返回狀態
             case MonsterState.Return:
                 transform.up = begin - transform.position;
                 transform.position += transform.up * Time.deltaTime * runSpeed;
-                //targetRotation = Quaternion.LookRotation(begin - transform.position, Vector3.up);
-                //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed);
-                //transform.position += transform.up * Time.deltaTime * runSpeed;
+                //檢查是否回到原位
                 ReturnCheck();
                 break;
-                
+
+        }
+        //衝次完冷卻
+        if (b == false)
+        {
+            transform.rotation = new Quaternion(0, 0, 0, 0);
         }
     }
     #endregion
-    
+
     /// <summary>
     /// 隨機交換狀態
     /// </summary>
     void RandomAction()
     {
         lastAct = Time.time;
-        float number = Random.Range(0, actWeight[0] + actWeight[1] );
+        float number = Random.Range(0, actWeight[0] + actWeight[1]);
         if (number <= actWeight[0])
         {
             currentState = MonsterState.Stand;
         }
-     
 
-        
-        if (actWeight[0]  < number && number <= actWeight[0] + actWeight[1] )
+
+
+        if (actWeight[0] < number && number <= actWeight[0] + actWeight[1])
         {
-            //rotate = Random.Range(-360,360);
-            //targetRotation = Quaternion.Euler(0, 0, Random.Range(1, 5)*90 );
             currentState = MonsterState.Walk;
-            
 
         }
     }
 
     /// <summary>
-    /// 追擊狀態
+    /// 檢查是否展開追擊
     /// </summary>
     void EnemyDistanceCheck()
     {
@@ -184,28 +207,21 @@ public class Enemy_AI : MonoBehaviour
     {
         enemyToPlayer = Vector2.Distance(player.transform.position, transform.position);
         enemyBegin = Vector2.Distance(transform.position, begin);
-        if(enemyToPlayer < defend)
+        if (enemyToPlayer < defend)
         {
             currentState = MonsterState.Chase;
         }
-      /*  else if (enemyToPlayer > wanderRadius)
-        {
-            targetRotation = Quaternion.LookRotation(begin - transform.position, Vector2.up);
-        }
-       */
     }
 
     /// <summary>
-    /// 追擊範圍
+    /// 檢查是否在追擊範圍內
     /// </summary>
     void ChaseRadiusCheck()
     {
-        //enemyToPlayer = Vector2.Distance(player.transform.position, transform.position);
         enemyBegin = Vector2.Distance(transform.position, begin);
-        if (enemyBegin> chaseRadius)
+        if (enemyBegin > chaseRadius)
         {
             currentState = MonsterState.Return;
-            ischarge = true;
         }
     }
 
@@ -221,27 +237,18 @@ public class Enemy_AI : MonoBehaviour
             RandomAction();
         }
     }
-
+    /// <summary>
+    /// 檢查是否使用衝刺
+    /// </summary>
     void chargeRadiusCheck()
     {
         enemyToPlayer = Vector2.Distance(player.position, transform.position);
-        if (enemyBegin < chargeRadius   )
+        if (enemyBegin < chargeRadius)
         {
-            
+
             currentState = MonsterState.charge;
             timer = 0;
         }
-    }
-
-    private IEnumerator Charge()
-    {
-        ischarge = false;
-        
-        yield return new WaitForSeconds(3);
-
-
-        a = false;
-        currentState = MonsterState.Stand;
     }
 }
 
