@@ -11,23 +11,23 @@ public class Enemy_groudAI : MonoBehaviour
     public Transform self;//敵人本身
     public Vector3 begin;
     [Header("遊走半徑")]
-    public float wanderRadius;//遊走半徑
+    public float wanderRadius = 6;//遊走半徑
     [Header("追擊半徑")]
-    public float chaseRadius;//追擊半徑
+    public float chaseRadius = 10;//追擊半徑
     [Header("自衛半徑")]
-    public float defend;//自衛半徑
+    public float defend = 5;//自衛半徑
     [Header("最小攻擊半徑")]
-    public float minAttackRadius;//最小攻擊半徑
+    public float minAttackRadius = 2;//最小攻擊半徑
     [Header("最大攻擊半徑")]
-    public float maxAttackRadius;//最大攻擊半徑
+    public float maxAttackRadius = 4;//最大攻擊半徑
     [Header("遊走速度")]
-    public float walkSpeed;//遊走速度
+    public float walkSpeed = 1;//遊走速度
     [Header("追擊速度")]
-    public float runSpeed;//追擊速度
+    public float runSpeed = 2;//追擊速度
     [Header("後退速度")]
-    public float backSpeed;//後退速度
+    public float backSpeed = 1.5f;//後退速度
     [Header("轉向速度")]
-    public float turnSpeed;//轉向速度
+    public float turnSpeed = 1;//轉向速度
     public enum MonsterState
     {
         Stand,
@@ -39,7 +39,7 @@ public class Enemy_groudAI : MonoBehaviour
     public MonsterState currentState = MonsterState.Stand;//默認原地
     public float[] actWeight = { 3000, 4000 };
     [Header("狀態切換間隔")]
-    public float actResttime;//狀態切換間隔
+    public float actResttime = 2;//狀態切換間隔
     public float lastAct;//上次切換時間
     private float enemyToPlayer;//敵人跟玩家之間距離
     private float enemyBegin;//敵人與初始位置的距離

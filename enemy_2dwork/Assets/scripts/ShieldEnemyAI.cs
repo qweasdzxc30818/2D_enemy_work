@@ -10,19 +10,19 @@ public class ShieldEnemyAI : MonoBehaviour
     public Transform player;
     public Vector3 begin;
     [Header("遊走半徑")]
-    public float wanderRadius;//遊走半徑
+    public float wanderRadius = 6;//遊走半徑
     [Header("追擊半徑")]
-    public float chaseRadius;//追擊半徑
+    public float chaseRadius = 10;//追擊半徑
     [Header("自衛半徑")]
-    public float defend;//自衛半徑   
-    public float chargeRadius;//盾衝半徑
-    public float chargeSpeed;//盾衝速度
+    public float defend = 5;//自衛半徑   
+    public float chargeRadius = 3;//盾衝半徑
+    public float chargeSpeed = 1;//盾衝速度
     [Header("遊走速度")]
-    public float walkSpeed;//遊走速度
+    public float walkSpeed = 1;//遊走速度
     [Header("追擊速度")]
-    public float runSpeed;//追擊速度
+    public float runSpeed = 2;//追擊速度
     [Header("返回速度")]
-    public float backSpeed;//轉向速度
+    public float backSpeed = 2;//轉向速度
     public Vector2 Chargepoint;
     public Vector2 ChargeBegin;
     public enum MonsterState//敵人總狀態
@@ -38,7 +38,7 @@ public class ShieldEnemyAI : MonoBehaviour
     public MonsterState currentState = MonsterState.Stand;//默認原地
     public float[] actWeight = { 3000, 4000 };
     [Header("下個動作的切換間隔")]
-    public float actResttime;//狀態切換間隔
+    public float actResttime = 2;//狀態切換間隔
     [Header("上次切換時間")]
     public float lastAct;//上次切換時間
     private float enemyToPlayer;//敵人跟玩家之間距離

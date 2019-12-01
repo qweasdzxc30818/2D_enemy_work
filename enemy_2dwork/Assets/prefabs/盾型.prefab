@@ -176,14 +176,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7475900129810952285, guid: 8a2a25334d6a2434397f4f9641a99d2f, type: 3}
   begin: {x: 0, y: 0, z: 0}
-  wanderRadius: 0
-  chaseRadius: 0
-  defend: 0
-  chargeRadius: 0
-  chargeSpeed: 0
-  walkSpeed: 0
-  runSpeed: 0
-  backSpeed: 0
+  wanderRadius: 6
+  chaseRadius: 10
+  defend: 5
+  chargeRadius: 3
+  chargeSpeed: 1
+  walkSpeed: 1
+  runSpeed: 2
+  backSpeed: 2
   Chargepoint: {x: 0, y: 0}
   ChargeBegin: {x: 0, y: 0}
   timer: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   actWeight:
   - 3000
   - 4000
-  actResttime: 0
+  actResttime: 2
   lastAct: 0
   self: {fileID: 6410918278146818364}
   isCharge: 0

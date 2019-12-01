@@ -9,23 +9,23 @@ public class Enemy_AI : MonoBehaviour
     [Header("玩家")]
     public Transform player;//玩家
     [Header("敵人初始位置")]
-    public Vector3 begin;//敵人初始位置    
+    public Vector3 begin;//敵人初始位置 
     [Header("遊走半徑")]
-    public float wanderRadius;//遊走半徑
+    public float wanderRadius = 6;//遊走半徑
     [Header("追擊半徑")]
-    public float chaseRadius;//追擊半徑
+    public float chaseRadius = 10;//追擊半徑
     [Header("自衛半徑")]
-    public float defend;//自衛半徑    
+    public float defend = 5;//自衛半徑    
     [Header("衝刺半徑")]
-    public float chargeRadius;//衝刺半徑
+    public float chargeRadius= 3;//衝刺半徑
     [Header("衝刺速度")]
-    public float chargespeed;//衝刺速度    
+    public float chargespeed = 1.63f;//衝刺速度    
     [Header("遊走速度")]
-    public float walkSpeed;//遊走速度
+    public float walkSpeed = 1;//遊走速度
     [Header("追擊速度")]
-    public float runSpeed;//追擊速度
+    public float runSpeed = 2;//追擊速度
     [Header("轉向速度")]
-    public float turnSpeed;//轉向速度
+    public float turnSpeed = 3;//轉向速度
     [Header("衝刺終點")]
     public Vector2 chargepoint;
     [Header("是否正在衝刺")]
@@ -33,7 +33,7 @@ public class Enemy_AI : MonoBehaviour
     [Header("能否衝刺")]
     public bool b = true;
     [Header("計時器")]
-    public float timer;
+    public float timer = 0;
     /// <summary>
     /// 敵人狀態
     /// </summary>
@@ -49,7 +49,7 @@ public class Enemy_AI : MonoBehaviour
     public MonsterState currentState = MonsterState.Stand;//默認原地
     public float[] actWeight = { 3000, 4000 };
     [Header("下個動作的切換間隔")]
-    public float actResttime;//狀態切換間隔
+    public float actResttime = 2;//狀態切換間隔
     [Header("上次切換時間")]
     public float lastAct;//上次切換時間
 
@@ -234,7 +234,7 @@ public class Enemy_AI : MonoBehaviour
         if (enemyBegin < 0.5f)
         {
             is_Running = false;
-            RandomAction();
+            
         }
     }
     /// <summary>
