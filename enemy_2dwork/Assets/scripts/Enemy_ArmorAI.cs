@@ -34,6 +34,10 @@ public class Enemy_ArmorAI : MonoBehaviour
     public bool isArmor = true;
     [Header("計時器")]
     public float timer;
+    [Header("發射間隔")]
+    public float BulletTime = 0.5f;
+    [Header("第一次發射延遲")]
+    public float BulletFirst = 0.2f;
     private float angle;
     /// <summary>
     /// 敵人狀態
@@ -44,7 +48,6 @@ public class Enemy_ArmorAI : MonoBehaviour
         Walk,
         Chase,
         Attack,
-        Buff,
         Return
     }
     [Header("當前狀態")]
@@ -247,7 +250,7 @@ public class Enemy_ArmorAI : MonoBehaviour
         {
             isAttack = true;
             currentState = MonsterState.Attack;
-            InvokeRepeating("BulletON", 0, 0.5f);
+            InvokeRepeating("BulletON", BulletFirst, BulletTime);
         }
     }
     void BulletON()

@@ -13,12 +13,12 @@ public class BulletMove : MonoBehaviour
 
     void Update()
     {
-        BulletToEnemy = Vector2.Distance(Enemy.position, transform.position);
+        /*BulletToEnemy = Vector2.Distance(Enemy.position, transform.position);
         transform.Translate(Vector2.up * BulletSpeed * Time.deltaTime);
-        if (BulletToEnemy>=5)
+        if (BulletToEnemy >= 5)
         {
             Destroy(gameObject);
-        }
+        }*/
        
     }
 }
