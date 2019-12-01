@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f07060df7c4e7498339f19cfe1cce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 7475900129810952285, guid: 8a2a25334d6a2434397f4f9641a99d2f, type: 3}
   begin: {x: 0, y: 0, z: 0}
   wanderRadius: 0
   chaseRadius: 0
@@ -183,16 +183,16 @@ MonoBehaviour:
   chargeSpeed: 0
   walkSpeed: 0
   runSpeed: 0
-  turnSpeed: 0
+  backSpeed: 0
   Chargepoint: {x: 0, y: 0}
   ChargeBegin: {x: 0, y: 0}
+  timer: 0
   currentState: 0
   actWeight:
   - 3000
   - 4000
   actResttime: 0
   lastAct: 0
-  self: {fileID: 0}
+  self: {fileID: 6410918278146818364}
   isCharge: 0
   canCharge: 1
-  timer: 0

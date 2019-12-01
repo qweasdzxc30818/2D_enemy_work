@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba67de80db46e0a4eb3b01b339bfedcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 7475900129810952285, guid: 8a2a25334d6a2434397f4f9641a99d2f, type: 3}
   begin: {x: 0, y: 0, z: 0}
   wanderRadius: 6
   chaseRadius: 10

@@ -6,23 +6,19 @@ public class BulletMove : MonoBehaviour
 {
     public float BulletSpeed = 1;
     public Transform Enemy;
+    public float BulletToEnemy;
     void Start()
     {
     }
 
     void Update()
     {
+        BulletToEnemy = Vector2.Distance(Enemy.position, transform.position);
         transform.Translate(Vector2.up * BulletSpeed * Time.deltaTime);
-        if (transform.position.y > 10 || transform.position.y < -10)
+        if (BulletToEnemy>=5)
         {
-
             Destroy(gameObject);
         }
-        if (transform.position.x > 10 || transform.position.x < -10)
-        {
-
-            Destroy(gameObject);
-        }
-
+       
     }
 }

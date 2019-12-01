@@ -91,11 +91,13 @@ MonoBehaviour:
   currentArmor: 100
   currentArmor_2: 100
   Armor: {fileID: 2406973204521538791}
-  Armor_2: {fileID: 0}
-  Target_2: {fileID: 0}
+  Armor_2: {fileID: 1670580807207880987, guid: 31041aa05f562bc4aa18477c461dd208, type: 3}
+  Target_2: {fileID: 6352160699066433245, guid: 644b915b58d7868438848f6014ff2f32,
+    type: 3}
   Armorject: {fileID: 2406973204521538788}
   ArmorUnder: {fileID: 0}
-  Armorject_2: {fileID: 0}
+  Armorject_2: {fileID: 1670580807207880984, guid: 31041aa05f562bc4aa18477c461dd208,
+    type: 3}
   offsety: 30
   offsetx: 50
   a: 10

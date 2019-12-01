@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 789066669573239527}
   - component: {fileID: 789066669573239521}
   - component: {fileID: 789066669573239520}
-  - component: {fileID: 789066669573239522}
-  - component: {fileID: 789066669862581525}
+  - component: {fileID: 4582405165225295832}
   m_Layer: 5
   m_Name: "\u8840\u689D_Ground"
   m_TagString: Untagged
@@ -77,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &789066669573239522
+--- !u!114 &4582405165225295832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,40 +88,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8914e184783f5ec4989db3945f57f45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGround: 1
+  isGround: 0
+  player: {fileID: 7475900129810952285, guid: 8a2a25334d6a2434397f4f9641a99d2f, type: 3}
+  self: {fileID: 789066669573239527}
   Health_Ground: {fileID: 789066669573239527}
   currentHealth_Ground: 100
-  OffY_Ground: 15
-  OffX_Ground: 50
-  Enemy_Ground: {fileID: 0}
-  EnemyGround: {fileID: 0}
---- !u!114 &789066669862581525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789066669573239526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f35f5503758d43140bd0798b92b5526e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  self: {fileID: 0}
-  begin: {x: 0, y: 0, z: 0}
-  wanderRadius: 3
-  chaseRadius: 5
-  defend: 3
-  minAttackRadius: 1
-  maxAttackRadius: 2
-  walkSpeed: 2
-  runSpeed: 3
-  backSpeed: 2
-  turnSpeed: 1
-  currentState: 0
-  actWeight:
-  - 3000
-  - 4000
-  actResttime: 2
-  lastAct: 0
+  OffY_Ground: 10
+  OffX_Ground: 10
+  Enemy_Ground: {fileID: 3072179539494260771, guid: f7327b20e750d1c4bb4b6d6a9f866b10,
+    type: 3}
