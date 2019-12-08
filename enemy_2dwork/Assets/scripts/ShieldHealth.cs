@@ -18,8 +18,7 @@ public class ShieldHealth : MonoBehaviour
     public GameObject Target;//跟隨目標
     [Header("血量")]
     public GameObject Health;//血量
-    [Header("血量底圖")]
-    public GameObject HealthUnder;//血量底圖
+
 
     private int max;//固定長度
     #endregion
@@ -35,7 +34,7 @@ public class ShieldHealth : MonoBehaviour
         HealthBar.sizeDelta = new Vector2(100 * currentHealth / max, HealthBar.sizeDelta.y);
         Vector2 TargeP = Camera.main.WorldToScreenPoint(Target.transform.position);
         Health.GetComponent<RectTransform>().position = TargeP + Vector2.up * offsetY + Vector2.left * offsetX;
-        HealthUnder.GetComponent<RectTransform>().position = TargeP + Vector2.up * offsetY + Vector2.left * offsetX;
+
     }
     #endregion
    

@@ -13,8 +13,6 @@ public class ArmorBar : MonoBehaviour
     public GameObject Target_2;
     [Header("血條")]
     public GameObject Armorject;
-    [Header("血條底圖")]
-    public GameObject ArmorUnder;
     [Header("盔甲條")]
     public GameObject Armorject_2;
     [Header("Y軸偏移值")]
@@ -48,7 +46,6 @@ public class ArmorBar : MonoBehaviour
         Armor_2.sizeDelta = new Vector2(currentArmor_2, Armor_2.sizeDelta.y);
         Vector2 TargeX = Camera.main.WorldToScreenPoint(Target_2.transform.position);//存跟隨目標位置
         Armorject.GetComponent<RectTransform>().position = TargeX + Vector2.up * offsety + Vector2.left * offsetx;//盔甲跟隨
-        ArmorUnder.GetComponent<RectTransform>().position = TargeX + Vector2.up * offsety + Vector2.left * offsetx;//底圖跟隨(可刪)
         Armorject_2.GetComponent<RectTransform>().position = TargeX + Vector2.up * offsety + Vector2.left * offsetx;//跟隨
         if (currentArmor == 0)//死亡
         {
