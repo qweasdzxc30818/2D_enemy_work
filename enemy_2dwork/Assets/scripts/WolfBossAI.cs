@@ -104,8 +104,8 @@ public class WolfBossAI : MonoBehaviour
                 break;
             //走路狀態
             case MonsterState.Walk:
-                transform.right = player.position - transform.position;//朝向
-                transform.position += transform.right * Time.deltaTime * walkSpeed;
+                transform.up = -(player.position - transform.position);//朝向
+                transform.position += -transform.up * Time.deltaTime * walkSpeed;
                 //時間到切換狀態
                 if (Time.time - lastAct > actResttime)
                 {
@@ -124,8 +124,8 @@ public class WolfBossAI : MonoBehaviour
                 //若不是在衝刺中 追擊玩家
                 if (ischarge == false && isCall == false)
                 {
-                    transform.right = player.position - transform.position;
-                    transform.position += transform.right * Time.deltaTime * runSpeed;
+                    transform.up = -(player.position - transform.position);
+                    transform.position += -transform.up * Time.deltaTime * runSpeed;
                     //檢查是否再追擊範圍
                     ChaseRadiusCheck();
                     //檢查是否使用衝刺
@@ -134,7 +134,7 @@ public class WolfBossAI : MonoBehaviour
                 break;
             //衝刺狀態
             case MonsterState.Charge:
-                transform.right = player.position - transform.position;
+                transform.up = -(player.position - transform.position);
                 timer += Time.deltaTime;//開始計時
                 if (timer >= 2.5 && timer <= 2.8)
                 {
@@ -174,8 +174,8 @@ public class WolfBossAI : MonoBehaviour
 
             //返回狀態
             case MonsterState.Return:
-                transform.right = begin - transform.position;
-                transform.position += transform.right * Time.deltaTime * runSpeed;
+                transform.up = -(begin - transform.position);
+                transform.position += -transform.up * Time.deltaTime * runSpeed;
                 //檢查是否回到原位
                 ReturnCheck();
                 break;
